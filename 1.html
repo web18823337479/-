@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //第三题
+        var str = 'asxasxasxaaaa';
+        
+        var str1 = [];
+
+        for(var i=0; i<str.length; i++){
+            if(!str1[str.charAt(i)]){
+                str1[str.charAt(i)] = 1;
+
+            }else{
+
+                str1[str.charAt(i)] ++;
+            }
+        }
+
+        var max = 0; var index = ''; 
+        for(var i in str1){
+            if(str1[i] > max){
+                max = str1[i];
+                index = i;
+            }
+        }
+        console.log('出现最多次的是：'+index);
+
+    //第四题
+        function GetRequest() {  
+        var url = location.search;     
+        var theRequest = new Object();  
+        if (url.indexOf("?") != -1) {  
+            var str = url.substr(1);  
+            strs = str.split("&");  
+            for (var i = 0; i < strs.length; i++) {  
+                theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);  
+            }  
+        }  
+        return theRequest;  
+    }  
+
+        var Request = new Object();  
+        Request = GetRequest();  
+        alert(Request['id']); 
+
+
+    //第五题 
+        function flat(arr){
+        var result=[];
+        function flatFn(arr1){
+            for(var i=0;i<arr1.length;i++){
+                if(!Object.prototype.toString.call(arr1[i]) == '[object Array]'){
+                    flatFn(arr1[i]);
+                }else{
+                    result.push(arr1[i]);
+                }
+            }
+        }
+        flatFn(arr);
+        return result;
+    }
+
+    //第六题
+        function isReverse(num){
+        var s = 0 ;
+        var n = num;
+        while(n){
+            s = s*10 + n%10
+            n = parseInt(n/10);
+        }
+        return s === num;
+
+    }
+        console.log(isReverse(121));
+
+    //第七题
+        for(var i=0;i<arr.length-1;i++){
+			for(var j=0;j<arr.length-i-1;j++){
+				if(arr[j]>arr[j+1]){
+					var tem = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = tem;
+				}
+			}
+		}
+
+    //第九题
+    // <?php
+        $string = "open_door make_by_id";
+        $upper = strtoupper($string);
+        print("$upper\n");
+    // ?>
+    </script>
+</body>
+</html>
